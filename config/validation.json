@@ -1,3 +1,4 @@
 {
-  "validationHeader": "123-abc-def-456"
+  "adminName": "admin",
+  "adminPassword": "admin123"
 }

@@ -1,5 +1,5 @@
 require('babel-register')
-const userAPI = require('./users')
+const userAPI = require('./users.js')
 
 module.exports = function RouterModule(app) {
     //define a common prefix

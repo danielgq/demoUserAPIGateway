@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-//将静态资源文件所在的目录作为参数传递给 express.static 中间件就可以提供静态资源文件的访问了
+//static file location
 app.use(express.static('public'));
 
 //cross-domain access
@@ -26,7 +26,7 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header(
         'Access-Control-Allow-Headers',
-        'Origin, X-Requested-With, Content-Type, Accept, Validation-Header'
+        'Origin, X-Requested-With, Content-Type, Accept, Access-Token'
     );
     res.header(
         'Access-Control-Allow-Methods',
