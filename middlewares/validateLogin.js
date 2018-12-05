@@ -4,19 +4,19 @@ const validateLogin = (req, res, next) => {
     const {adminName, adminPassword} = req.body;
     fs.readFile('config/validation.json','utf-8',function(err,data){
         if(data){
-            const validAdminName = JSON.parse(data).adminName;
-            const validAdminPassword = JSON.parse(data).adminPassword;
+            const {validAdminName, validAdminPassword} = JSON.parse(data);
             if (validAdminName === adminName && validAdminPassword === adminPassword) {
                 console.log('validation pass')
                 next()
-            }else{
+            } else {
                 console.log('validation failed')
                 return res.status(401).json({
                     msg: 'invalid admin info!!!'
                 })
             }
-        }else{
+        }else if(err){
             console.log("error occurred when read the file")
+            console.log(err)
         }
     })
 
