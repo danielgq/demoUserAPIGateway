@@ -2,7 +2,7 @@ import fs from 'fs'
 
 const validateLogin = (req, res, next) => {
     const {adminName, adminPassword} = req.body;
-    fs.readFile('config/validation.json','utf-8',function(err,data){
+    fs.readFile('config/validation.json',/*'utf-8',*/function(err,data){
         if(data){
             const {validAdminName, validAdminPassword} = JSON.parse(data);
             if (validAdminName === adminName && validAdminPassword === adminPassword) {
